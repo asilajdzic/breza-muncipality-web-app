@@ -1,0 +1,30 @@
+.form-container {
+	width: 500px;
+	height: 600px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-end;
+	.email {
+		width: 100%;
+		height: 36px;
+		font-size: 28px;
+		padding: 5px;
+	}
+	.message {
+		width: 100%;
+		height: 70%;
+		font-size: 28px;
+		resize: none;
+		padding: 5px;
+	}
+	.submit-message-button {
+		font-size: 28px;
+		padding: 5px 15px;
+		color: whitesmoke;
+		background-color: #1aa3ff;
+		border: none;
+		border-radius: 2px;
+		cursor: pointer;
+	}
+}

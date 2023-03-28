@@ -5,14 +5,21 @@
 	width: 100%;
 	padding: 0 20px;
 
-	.picture-container {
-		height: fit-content;
+	.image-container {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		padding: 20px 0;
 	}
 	.funcs-container {
 		width: 100%;
-		padding: 10%;
+		padding: 5% 10%;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		column-gap: 10px;
+	}
+
+	.video-container {
+		width: 100%;
 	}
 }

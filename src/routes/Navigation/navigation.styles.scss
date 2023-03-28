@@ -5,11 +5,12 @@
 	width: 100%;
 	margin-bottom: 25px;
 	padding-right: 20px;
+	background-color: #1aa3ff;
 
 	.logo-container {
-		width: 70px;
-		height: 100%;
-		padding: 25px;
+		width: 120px;
+		z-index: 10;
+		margin: 25px;
 	}
 
 	.nav-links-container {
@@ -22,6 +23,8 @@
 		.nav-link {
 			cursor: pointer;
 			padding: 10px 15px;
+			color: whitesmoke;
+			font-weight: bold;
 			&:hover {
 				border-radius: 10px;
 				border: solid 1px;

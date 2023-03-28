@@ -1,0 +1,15 @@
+.info-card-container {
+	max-width: 400px;
+	display: block;
+	flex-direction: column;
+	justify-content: space-around;
+	.information-text {
+		font-size: 18px;
+		text-align: justify;
+		display: flex;
+	}
+	.basic-info {
+		height: 30px;
+		margin-bottom: 40px;
+	}
+}

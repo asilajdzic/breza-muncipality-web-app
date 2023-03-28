@@ -1,0 +1,12 @@
+.ask-the-council-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding-top: 100px;
+
+	.councillers-container {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+}

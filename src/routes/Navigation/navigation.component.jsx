@@ -1,13 +1,17 @@
 import { Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
+import { ReactComponent as AnyLogo } from '../../assets/logo.svg';
+
 import './navigation.styles.scss';
 
 const Navigation = () => {
 	return (
 		<Fragment>
 			<div className='navigation-container'>
-				<div className='logo-container'>Logo</div>
+				<Link className='logo-container' to='/'>
+					<AnyLogo className='logo' />
+				</Link>
 				<div className='nav-links-container'>
 					<Link to='/' className='nav-link'>
 						Home
