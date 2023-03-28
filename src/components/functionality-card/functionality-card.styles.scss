@@ -1,0 +1,15 @@
+.functionality-card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	width: 100%;
+	aspect-ratio: 1;
+	background-color: #1aa3ff;
+	font-size: 2em;
+	font-weight: bold;
+	color: whitesmoke;
+	text-align: center;
+	text-overflow: clip;
+	overflow: hidden;
+}
