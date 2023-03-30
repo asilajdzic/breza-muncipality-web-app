@@ -1,3 +1,5 @@
+@use '../../assets/color-variables.scss' as *;
+
 .form-container {
 	width: 500px;
 	height: 600px;
@@ -6,12 +8,16 @@
 	justify-content: space-between;
 	align-items: flex-end;
 	.email {
+		border: solid $secondary;
+		background-color: $primary;
 		width: 100%;
 		height: 36px;
 		font-size: 28px;
 		padding: 5px;
 	}
 	.message {
+		border: solid $secondary;
+		background-color: $primary;
 		width: 100%;
 		height: 70%;
 		font-size: 28px;
@@ -21,8 +27,9 @@
 	.submit-message-button {
 		font-size: 28px;
 		padding: 5px 15px;
-		color: whitesmoke;
-		background-color: #1aa3ff;
+		color: $primary;
+		background-color: $secondary;
+		color: $primary;
 		border: none;
 		border-radius: 2px;
 		cursor: pointer;

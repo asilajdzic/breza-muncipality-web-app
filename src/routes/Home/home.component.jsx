@@ -42,7 +42,6 @@ const Home = () => {
 					))}
 				</div>
 				<div className='news-container'></div>
-				<div className='video-container'>Video</div>
 			</div>
 			<Outlet />
 		</Fragment>

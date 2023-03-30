@@ -1,8 +1,13 @@
+@use '../../assets/color-variables.scss' as *;
+
 .info-card-container {
 	max-width: 400px;
-	display: block;
+	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	margin-bottom: 60px;
+	.portrait {
+		border: solid $secondary;
+	}
 	.information-text {
 		font-size: 18px;
 		text-align: justify;
@@ -10,6 +15,5 @@
 	}
 	.basic-info {
 		height: 30px;
-		margin-bottom: 40px;
 	}
 }

@@ -1,37 +1,28 @@
 import MessageForm from '../../components/message-form/message-form.component';
 import InfoCard from '../../components/info-card/info-card.component';
 
-import './ask-the-council.styles.scss';
+import { ELECTED_POSITIONS } from '../../utils/positions/elected-positions';
 
-const councillors = [
-	{
-		name: 'Name1 Surname1',
-		title: 'Councillor Chairman',
-		image: 'https://i.ibb.co/WDqJ93M/portrait.jpg',
-		email: 'email',
-	},
-	{
-		name: 'Name2 Surname2',
-		title: 'Councillor',
-		image: 'https://i.ibb.co/WDqJ93M/portrait.jpg',
-		email: 'email',
-	},
-	{
-		name: 'Name3 Surname3',
-		title: 'Councillor',
-		image: 'https://i.ibb.co/WDqJ93M/portrait.jpg',
-		email: 'email',
-	},
-];
+import './ask-the-council.styles.scss';
+import { useSelector } from 'react-redux';
+import { selectEmployeesArray } from '../../store/employees/employees.selector';
 
 const AskTheCouncil = () => {
+	const employees = useSelector(selectEmployeesArray);
+	const councillors = employees.filter(
+		(employee) =>
+			employee.jobTitle === ELECTED_POSITIONS.councillor_chairman ||
+			employee.jobTitle === ELECTED_POSITIONS.councillor
+	);
 	return (
 		<div className='ask-the-council-container'>
 			<div className='councillers-container'>
 				{councillors.map((councillor, index) => {
 					return (
 						<InfoCard
-							text={Boolean(councillor.title === 'Councillor Chairman')}
+							text={Boolean(
+								councillor.jobTitle === ELECTED_POSITIONS.councillor_chairman
+							)}
 							employee={councillor}
 							key={index}
 						/>

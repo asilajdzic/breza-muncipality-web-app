@@ -11,7 +11,7 @@ const InfoCard = ({ employee, text = 'true' }) => {
 			{text ? (
 				<p className='information-text'>
 					In order to promote and develop civic participation in decision-making
-					processes, a two-way communication with the {employee.title}{' '}
+					processes, a two-way communication with the {employee.jobTitle}{' '}
 					{employee.name} was enabled through the website of the local
 					self-government unit. Only those communities in which citizens are
 					well informed and actively involved in decision-making processes can
@@ -19,8 +19,8 @@ const InfoCard = ({ employee, text = 'true' }) => {
 				</p>
 			) : (
 				<p className='basic-info'>
-					Name: {employee.name} <br /> Position: {employee.title} <br /> Email:{' '}
-					{employee.email}
+					Name: {employee.name} <br /> Position: {employee.jobTitle} <br />{' '}
+					Email: {employee.email}
 				</p>
 			)}
 		</div>

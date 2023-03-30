@@ -1,9 +1,12 @@
+@use '../../assets/color-variables.scss' as *;
+
 .home-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
 	padding: 0 20px;
+	background-color: $primary;
 
 	.image-container {
 		display: flex;

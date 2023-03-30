@@ -1,8 +1,11 @@
+@use '../../assets/color-variables.scss' as *;
+
 .ask-the-council-container {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	padding-top: 100px;
+	background-color: $primary;
 
 	.councillers-container {
 		display: flex;
