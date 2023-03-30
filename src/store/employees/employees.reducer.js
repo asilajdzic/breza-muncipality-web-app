@@ -1,7 +1,7 @@
 import { EMPLOYEES_ACTION_TYPES } from './employees.types';
 
 const EMPLOYEES_INITIAL_STATE = {
-	employeesArray: [],
+	employees: [],
 };
 
 export const employeesReducer = (
@@ -12,7 +12,10 @@ export const employeesReducer = (
 
 	switch (type) {
 		case EMPLOYEES_ACTION_TYPES.SET_EMPLOYEES:
-			return { ...state, employeesArray: payload };
+			return {
+				...state,
+				employees: payload,
+			};
 		default:
 			return state;
 	}

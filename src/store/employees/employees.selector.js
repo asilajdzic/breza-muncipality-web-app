@@ -1,8 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-const selectEmployees = (state) => state.employees;
+const selectEmployeesReducer = (state) => state.employees;
 
-export const selectEmployeesArray = createSelector(
-	[selectEmployees],
-	(employeesSlice) => employeesSlice.employeesArray
+export const selectEmployees = createSelector(
+	[selectEmployeesReducer],
+	(employeesSlice) => employeesSlice.employees
 );

@@ -1,5 +1,5 @@
 export const ELECTED_POSITIONS = {
-	mayor: 'Mayor',
-	councillor: 'Councillor',
-	councillor_chairman: 'Councillor Chairman',
+	MAYOR: 'Mayor',
+	COUNCILLOR: 'Councillor',
+	COUNCILLOR_CHAIRMAN: 'Councillor Chairman',
 };
