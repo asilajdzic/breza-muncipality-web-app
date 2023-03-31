@@ -1,15 +1,9 @@
 @use '../../assets/color-variables.scss' as *;
 
 .ask-the-council-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
 	padding-top: 100px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	row-gap: 60px;
 	background-color: $primary;
-
-	.councillers-container {
-		display: flex;
-		flex-direction: column;
-		flex-wrap: wrap;
-	}
 }

@@ -1,7 +1,8 @@
 @use '../../assets/color-variables.scss' as *;
 
 .info-card-container {
-	max-width: 400px;
+	place-self: center;
+	max-width: 40%;
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 60px;

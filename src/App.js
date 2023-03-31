@@ -73,11 +73,11 @@ const EMPLOYEES = [
 
 function App() {
 	const dispatch = useDispatch();
-	addCollection('employees', EMPLOYEES);
+	addCollection(FIRESTORE_COLLECTION_TYPES.EMPLOYEES, EMPLOYEES);
 	useEffect(() => {
 		const getEmployees = async () => {
 			const employees = await getCollection(
-				FIRESTORE_COLLECTION_TYPES.employees
+				FIRESTORE_COLLECTION_TYPES.EMPLOYEES
 			);
 			dispatch(setEmployees(employees));
 		};

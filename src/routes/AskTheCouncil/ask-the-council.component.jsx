@@ -21,13 +21,11 @@ const AskTheCouncil = () => {
 	);
 	return (
 		<div className='ask-the-council-container'>
-			<div className='councillers-container'>
-				<InfoCard employee={chairman} text={true} />
-				{councillors.map((councillor, index) => {
-					return <InfoCard employee={councillor} key={index} />;
-				})}
-			</div>
+			<InfoCard employee={chairman} text={true} />
 			<MessageForm />
+			{councillors.map((councillor, index) => {
+				return <InfoCard employee={councillor} key={index} />;
+			})}
 		</div>
 	);
 };
