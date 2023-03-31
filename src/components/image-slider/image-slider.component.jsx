@@ -13,12 +13,10 @@ const ImageSlider = () => {
 	const length = IMAGES.length;
 
 	const nextSlide = () => {
-		console.log('>');
 		setCurrentImage(currentImage === length - 1 ? 0 : currentImage + 1);
 	};
 
 	const prevSlide = () => {
-		console.log('<');
 		setCurrentImage(currentImage === 0 ? length - 1 : currentImage - 1);
 	};
 
@@ -28,10 +26,10 @@ const ImageSlider = () => {
 
 	return (
 		<section>
-			<span className='arrow left' onClick={prevSlide}>
+			<span className='left-arrow' onClick={prevSlide}>
 				&#10092;
 			</span>
-			<span className='arrow right' onClick={nextSlide}>
+			<span className='right-arrow' onClick={nextSlide}>
 				&#10093;
 			</span>
 			{IMAGES.map((img, index) => {
