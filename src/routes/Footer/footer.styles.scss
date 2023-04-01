@@ -1,0 +1,7 @@
+@use '../../assets/color-variables.scss' as *;
+
+.footer-container {
+	background-color: $secondary;
+	color: $primary;
+	height: 100px;
+}

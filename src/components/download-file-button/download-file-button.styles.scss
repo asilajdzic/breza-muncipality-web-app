@@ -1,0 +1,23 @@
+@use '../../assets/color-variables.scss' as *;
+
+.download-file-link {
+	font-weight: bold;
+	display: flex;
+	flex-direction: column;
+	width: 12vw;
+	aspect-ratio: 1.2/1;
+	text-align: center;
+
+	.download-file {
+		background-color: $primary;
+		color: $primary;
+		border: none;
+		cursor: pointer;
+	}
+	.file-name {
+		color: $secondary;
+		font-size: 1.5vw;
+		text-align: center;
+		text-overflow: ellipsis;
+	}
+}

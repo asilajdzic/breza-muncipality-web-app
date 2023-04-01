@@ -14,6 +14,8 @@ import Home from './routes/Home/home.component';
 import Navigation from './routes/Navigation/navigation.component';
 import AskTheMayor from './routes/AskTheMayor/ask-the-mayor.component';
 import AskTheCouncil from './routes/AskTheCouncil/ask-the-council.component';
+import EForm from './routes/E-forms/e-forms.component';
+import Footer from './routes/Footer/footer.component';
 
 //temporary method of adding documents to firestore
 const EMPLOYEES = [
@@ -92,8 +94,10 @@ function App() {
 					<Route index element={<Home />} />
 					<Route path='/ask-the-mayor' element={<AskTheMayor />} />
 					<Route path='/ask-the-council' element={<AskTheCouncil />} />
+					<Route path='/e-forms' element={<EForm />} />
 				</Route>
 			</Routes>
+			<Footer />
 		</Fragment>
 	);
 }

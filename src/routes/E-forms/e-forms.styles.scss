@@ -1,0 +1,17 @@
+@use '../../assets/color-variables.scss' as *;
+
+.e-forms-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	row-gap: 6vw;
+	padding: 10vw 6vw;
+	.e-form-container {
+		place-self: center;
+		overflow: hidden;
+		cursor: pointer;
+		border-radius: 4%;
+		&:hover {
+			border: solid 1px $secondary;
+		}
+	}
+}
