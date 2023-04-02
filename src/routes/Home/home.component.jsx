@@ -6,7 +6,7 @@ import ImageSlider from '../../components/image-slider/image-slider.component';
 
 import './home.styles.scss';
 
-export const FUNCTIONALITIES = [
+const FUNCTIONALITIES = [
 	{
 		id: 0,
 		name: 'Ask the Mayor',

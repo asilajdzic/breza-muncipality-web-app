@@ -21,7 +21,7 @@ import ReportCorruption from './routes/report-corruption/report-corruption.compo
 //temporary method of adding documents to firestore
 const EMPLOYEES = [
 	{
-		department: POSITION_TYPES.ELECTED,
+		category: POSITION_TYPES.ELECTED,
 		employeesArray: [
 			{
 				name: 'Name',
@@ -54,7 +54,7 @@ const EMPLOYEES = [
 		],
 	},
 	{
-		department: POSITION_TYPES.EXPERT_ASSOCIATE,
+		category: POSITION_TYPES.EXPERT_ASSOCIATE,
 		employeesArray: [
 			{
 				name: 'Name',

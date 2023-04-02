@@ -11,7 +11,7 @@ import { selectEmployees } from '../../store/employees/employees.selector';
 const AskTheCouncil = () => {
 	const employees = useSelector(selectEmployees);
 	const electedEmployees = employees.find(
-		(category) => category.department === POSITION_TYPES.ELECTED
+		(collection) => collection.category === POSITION_TYPES.ELECTED
 	).employeesArray;
 	const chairman = electedEmployees.find(
 		(councillor) => councillor.title === ELECTED_POSITIONS.COUNCILLOR_CHAIRMAN
@@ -22,7 +22,7 @@ const AskTheCouncil = () => {
 	return (
 		<div className='ask-the-council-container'>
 			<InfoCard employee={chairman} text={true} />
-			<MessageForm />
+			<MessageForm collectionTitle={'council'} />
 			{councillors.map((councillor, index) => {
 				return <InfoCard employee={councillor} key={index} />;
 			})}

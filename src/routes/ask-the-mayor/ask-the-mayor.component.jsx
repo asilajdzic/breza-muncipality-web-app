@@ -13,14 +13,14 @@ import './ask-the-mayor.styles.scss';
 const AskTheMayor = () => {
 	const employees = useSelector(selectEmployees);
 	const mayor = employees
-		.find((category) => category.department === POSITION_TYPES.ELECTED)
+		.find((collection) => collection.category === POSITION_TYPES.ELECTED)
 		.employeesArray.find(
 			(employee) => employee.title === ELECTED_POSITIONS.MAYOR
 		);
 	return (
 		<div className='ask-the-mayor-container'>
 			<InfoCard employee={mayor} text={true} />
-			<MessageForm />
+			<MessageForm collectionTitle='mayor' />
 		</div>
 	);
 };
