@@ -1,6 +1,6 @@
-import './download-file-button.styles.scss';
+import './download-file.styles.scss';
 
-const DownloadFileButton = ({ file, name }) => {
+const DownloadFile = ({ file, name }) => {
 	return (
 		<a className='download-file-link' href={file} download={file}>
 			<img
@@ -13,4 +13,4 @@ const DownloadFileButton = ({ file, name }) => {
 	);
 };
 
-export default DownloadFileButton;
+export default DownloadFile;

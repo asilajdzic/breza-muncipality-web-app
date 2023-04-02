@@ -9,6 +9,7 @@
 		place-self: center;
 		overflow: hidden;
 		cursor: pointer;
+		border: solid 1px $primary;
 		border-radius: 4%;
 		&:hover {
 			border: solid 1px $secondary;

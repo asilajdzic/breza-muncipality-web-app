@@ -1,0 +1,19 @@
+@use '../../assets/color-variables.scss' as *;
+
+.report-corruption-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	justify-content: space-around;
+	background-color: $primary;
+	height: 100vh;
+	padding: 8vh 0;
+	.report-corruption-text-container {
+		justify-self: center;
+		padding: 0 5vw;
+		p {
+			color: black;
+			font-size: 18px;
+			text-align: justify;
+		}
+	}
+}

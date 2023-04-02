@@ -10,12 +10,13 @@ import { POSITION_TYPES } from './utils/positions/position-types';
 import { ELECTED_POSITIONS } from './utils/positions/elected-positions';
 import { EXPERT_ASSOCIATE_POSITIONS } from './utils/positions/expert-associate-positions';
 
-import Home from './routes/Home/home.component';
-import Navigation from './routes/Navigation/navigation.component';
-import AskTheMayor from './routes/AskTheMayor/ask-the-mayor.component';
-import AskTheCouncil from './routes/AskTheCouncil/ask-the-council.component';
-import EForm from './routes/E-forms/e-forms.component';
-import Footer from './routes/Footer/footer.component';
+import Home from './routes/home/home.component';
+import Navigation from './routes/navigation/navigation.component';
+import AskTheMayor from './routes/ask-the-mayor/ask-the-mayor.component';
+import AskTheCouncil from './routes/ask-the-council/ask-the-council.component';
+import EForm from './routes/e-forms/e-forms.component';
+import Footer from './components/footer/footer.component';
+import ReportCorruption from './routes/report-corruption/report-corruption.component';
 
 //temporary method of adding documents to firestore
 const EMPLOYEES = [
@@ -95,6 +96,7 @@ function App() {
 					<Route path='/ask-the-mayor' element={<AskTheMayor />} />
 					<Route path='/ask-the-council' element={<AskTheCouncil />} />
 					<Route path='/e-forms' element={<EForm />} />
+					<Route path='/report-corruption' element={<ReportCorruption />} />
 				</Route>
 			</Routes>
 			<Footer />

@@ -1,4 +1,4 @@
-import DownloadFileButton from '../../components/download-file-button/download-file-button.component';
+import DownloadFile from '../../components/download-file/download-file.component';
 
 import { DOWNLOAD_FILE_NAMES } from '../../utils/files/download-file-names';
 
@@ -21,11 +21,7 @@ const EForm = () => {
 		<div className='e-forms-container' title='Download File'>
 			{EFORMS.map((eForm, index) => (
 				<div className='e-form-container' key={index}>
-					<DownloadFileButton
-						file={eForm.file}
-						name={eForm.name}
-						path={eForm.path}
-					/>
+					<DownloadFile file={eForm.file} name={eForm.name} path={eForm.path} />
 				</div>
 			))}
 		</div>

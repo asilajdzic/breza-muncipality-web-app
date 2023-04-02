@@ -41,7 +41,7 @@ const Home = () => {
 						/>
 					))}
 				</div>
-				<div className='news-container'></div>
+				<div className='articles-container'></div>
 			</div>
 			<Outlet />
 		</Fragment>
