@@ -22,7 +22,7 @@ const AskTheCouncil = () => {
 	return (
 		<div className='ask-the-council-container'>
 			<InfoCard employee={chairman} text={true} />
-			<MessageForm collectionTitle={'council'} />
+			<MessageForm collectionTitle={'Council'} />
 			{councillors.map((councillor, index) => {
 				return <InfoCard employee={councillor} key={index} />;
 			})}

@@ -4,7 +4,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: 5px;
 	width: 15vw;
 	aspect-ratio: 1;
 	background-color: $secondary;
@@ -17,5 +16,6 @@
 	cursor: pointer;
 	&:hover {
 		transform: scale(1.02);
+		box-shadow: 3px 5px #9e8f8f;
 	}
 }

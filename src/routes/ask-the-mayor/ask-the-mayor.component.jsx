@@ -20,7 +20,7 @@ const AskTheMayor = () => {
 	return (
 		<div className='ask-the-mayor-container'>
 			<InfoCard employee={mayor} text={true} />
-			<MessageForm collectionTitle='mayor' />
+			<MessageForm collectionTitle='Mayor' />
 		</div>
 	);
 };

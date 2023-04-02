@@ -17,7 +17,7 @@ const ReportCorruption = () => {
 					enim culpa?
 				</p>
 			</div>
-			<MessageForm collectionTitle='report-corruption' />
+			<MessageForm collectionTitle='Report Corruption' />
 		</div>
 	);
 };

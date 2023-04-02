@@ -2,6 +2,20 @@
 
 .footer-container {
 	background-color: $secondary;
+	padding: 0 20px;
 	color: $primary;
-	height: 100px;
+	height: fit-content;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	.footer-item {
+		justify-self: center;
+		font-weight: bold;
+		text-align: center;
+		padding: 10px;
+		h1 {
+			font-size: 36px;
+			height: 35%;
+		}
+	}
 }
