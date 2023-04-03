@@ -8,7 +8,9 @@ import { setEmployees } from './store/employees/employees.action';
 import { FIRESTORE_COLLECTION_TYPES } from './utils/firebase/firestore_collection_types';
 import { POSITION_TYPES } from './utils/positions/position-types';
 import { ELECTED_POSITIONS } from './utils/positions/elected-positions';
+import { ECONOMY_POSITIONS } from './utils/positions/economy-positions';
 import { EXPERT_ASSOCIATE_POSITIONS } from './utils/positions/expert-associate-positions';
+import { FINANCE_POSITIONS } from './utils/positions/finance-positions';
 
 import Home from './routes/home/home.component';
 import Navigation from './routes/navigation/navigation.component';
@@ -69,6 +71,32 @@ const EMPLOYEES = [
 				email: 'Email',
 				image: 'https://i.ibb.co/WDqJ93M/portrait.jpg',
 				title: EXPERT_ASSOCIATE_POSITIONS.MAYORS_AFFAIRS,
+			},
+		],
+	},
+	{
+		category: POSITION_TYPES.ECONOMY,
+		employeesArray: [
+			{
+				name: 'Name',
+				surname: 'Surname',
+				email: 'Email',
+				image: 'https://i.ibb.co/WDqJ93M/portrait.jpg',
+				title: ECONOMY_POSITIONS.EXPERT_ASSOCIATE_FOR_DEVELOPMENT,
+				jobDesc: ['thing 1', 'thing 2', 'thing 3'],
+			},
+		],
+	},
+	{
+		category: POSITION_TYPES.FINANCE,
+		employeesArray: [
+			{
+				name: 'Name',
+				surname: 'Surname',
+				email: 'Email',
+				image: 'https://i.ibb.co/WDqJ93M/portrait.jpg',
+				title: FINANCE_POSITIONS.SENIOR_ACCOUNTING_OFFICER,
+				jobDesc: ['thing 1', 'thing 2', 'thing 3'],
 			},
 		],
 	},
