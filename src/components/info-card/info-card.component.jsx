@@ -1,6 +1,6 @@
 import './info-card.styles.scss';
 
-const InfoCard = ({ employee, text = false }) => {
+const InfoCard = ({ employee, text = false, jobDesc = false }) => {
 	return (
 		<div className='info-card-container'>
 			<img
@@ -21,6 +21,16 @@ const InfoCard = ({ employee, text = false }) => {
 				<p className='basic-info'>
 					Name: {employee.name} <br /> Position: {employee.title} <br /> Email:{' '}
 					{employee.email}
+				</p>
+			)}
+			{employee.jobDesc && (
+				<p className='job-desc'>
+					Job Description:{' '}
+					<ul>
+						{employee.jobDesc.map((duty) => (
+							<li>{duty}</li>
+						))}
+					</ul>{' '}
 				</p>
 			)}
 		</div>

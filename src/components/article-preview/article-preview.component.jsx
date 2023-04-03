@@ -2,7 +2,6 @@ import './article-preview.styles.scss';
 
 const ArticlePreview = ({ article, index }) => {
 	const { title, text, imageUrl } = article;
-	console.log(index);
 	const className = index === 0 ? 'first-element' : 'article-container';
 	return (
 		<a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' className={className}>

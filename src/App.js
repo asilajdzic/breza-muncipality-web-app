@@ -19,6 +19,7 @@ import AskTheCouncil from './routes/ask-the-council/ask-the-council.component';
 import EForm from './routes/e-forms/e-forms.component';
 import Footer from './components/footer/footer.component';
 import ReportCorruption from './routes/report-corruption/report-corruption.component';
+import Departments from './routes/departmens/departments.component';
 
 //temporary method of adding documents to firestore
 const EMPLOYEES = [
@@ -125,6 +126,7 @@ function App() {
 					<Route path='/ask-the-council' element={<AskTheCouncil />} />
 					<Route path='/e-forms' element={<EForm />} />
 					<Route path='/report-corruption' element={<ReportCorruption />} />
+					<Route path='/departments' element={<Departments />} />
 				</Route>
 			</Routes>
 			<Footer />

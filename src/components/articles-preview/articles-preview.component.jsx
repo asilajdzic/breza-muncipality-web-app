@@ -53,10 +53,11 @@ const ARTICLES = [
 const ArticlesPreview = () => {
 	return (
 		<div className='articles-container'>
-			{ARTICLES.map((article, index) =>
-				index < 7 ? (
-					<ArticlePreview article={article} key={index} index={index} />
-				) : null
+			{ARTICLES.map(
+				(article, index) =>
+					index < 7 && (
+						<ArticlePreview article={article} key={index} index={index} />
+					)
 			)}
 		</div>
 	);
