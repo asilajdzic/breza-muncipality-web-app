@@ -1,7 +1,9 @@
 import { Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
-import { ReactComponent as AnyLogo } from '../../assets/logo.svg';
+import { ReactComponent as MunicipalityLogo } from '../../assets/logo.svg';
+import { ReactComponent as FBLogo } from '../../assets/facebook-icon.svg';
+import { ReactComponent as YTLogo } from '../../assets/youtube-icon.svg';
 
 import './navigation.styles.scss';
 
@@ -10,9 +12,9 @@ const Navigation = () => {
 		<Fragment>
 			<div className='navigation-container'>
 				<Link className='logo-container' to='/'>
-					<AnyLogo className='logo' />
+					<MunicipalityLogo className='logo' />
 				</Link>
-				<div className='nav-links-container'>
+				<span className='nav-links-container'>
 					<Link to='/' className='nav-link'>
 						Home
 					</Link>
@@ -25,10 +27,26 @@ const Navigation = () => {
 					<Link to='/budget' className='nav-link'>
 						Budget
 					</Link>
-					<Link to='/contact' className='nav-link'>
-						Contact
+					<Link to='/sign-in' className='nav-link'>
+						Sign in
 					</Link>
-				</div>
+					<a
+						href='https://www.facebook.com/opcinabreza/'
+						className='nav-icon'
+						target='_blank'
+						rel='noreferrer'
+					>
+						<FBLogo />
+					</a>
+					<a
+						href='https://www.youtube.com/channel/UCOakqrxQuiaPcGh4dn-INuA'
+						className='nav-icon'
+						target='_blank'
+						rel='noreferrer'
+					>
+						<YTLogo />
+					</a>
+				</span>
 			</div>
 			<Outlet />
 		</Fragment>
