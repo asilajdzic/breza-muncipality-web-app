@@ -2,8 +2,15 @@ import { Fragment, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { getCollection, addCollection } from './utils/firebase/firebase.utils';
+import {
+	getCollection,
+	addCollection,
+	onAuthStateChangedListener,
+	createUserDocumentFromAuth,
+} from './utils/firebase/firebase.utils';
+
 import { setEmployees } from './store/employees/employees.action';
+import { setCurrentUser } from './store/user/user.action';
 
 import { FIRESTORE_COLLECTION_TYPES } from './utils/firebase/firestore_collection_types';
 import { POSITION_TYPES } from './utils/positions/position-types';
@@ -20,6 +27,7 @@ import EForm from './routes/e-forms/e-forms.component';
 import Footer from './components/footer/footer.component';
 import ReportCorruption from './routes/report-corruption/report-corruption.component';
 import Departments from './routes/departmens/departments.component';
+import SignIn from './routes/sign-in/sign-in.component';
 
 //temporary method of adding documents to firestore
 const EMPLOYEES = [
@@ -116,7 +124,14 @@ function App() {
 		getEmployees();
 		// eslint-disable-next-line
 	}, []);
-
+	useEffect(() => {
+		const unsubscribe = onAuthStateChangedListener((user) => {
+			if (user) createUserDocumentFromAuth(user);
+			dispatch(setCurrentUser(user));
+		});
+		return unsubscribe;
+		// eslint-disable-next-line
+	}, []);
 	return (
 		<Fragment>
 			<Routes>
@@ -127,6 +142,7 @@ function App() {
 					<Route path='/e-forms' element={<EForm />} />
 					<Route path='/report-corruption' element={<ReportCorruption />} />
 					<Route path='/departments' element={<Departments />} />
+					<Route path='/sign-in' element={<SignIn />} />
 				</Route>
 			</Routes>
 			<Footer />

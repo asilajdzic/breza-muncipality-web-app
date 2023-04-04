@@ -53,6 +53,7 @@ const ARTICLES = [
 const ArticlesPreview = () => {
 	return (
 		<div className='articles-container'>
+			<h1>Latest news</h1>
 			{ARTICLES.map(
 				(article, index) =>
 					index < 7 && (

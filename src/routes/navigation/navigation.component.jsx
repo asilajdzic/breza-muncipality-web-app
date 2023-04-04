@@ -1,6 +1,10 @@
 import { Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../store/user/user.selector';
+import { signOutUser } from '../../utils/firebase/firebase.utils';
+
 import { ReactComponent as MunicipalityLogo } from '../../assets/logo.svg';
 import { ReactComponent as FBLogo } from '../../assets/facebook-icon.svg';
 import { ReactComponent as YTLogo } from '../../assets/youtube-icon.svg';
@@ -8,6 +12,10 @@ import { ReactComponent as YTLogo } from '../../assets/youtube-icon.svg';
 import './navigation.styles.scss';
 
 const Navigation = () => {
+	const currentUser = useSelector(selectCurrentUser);
+
+	const signOutHandler = () => signOutUser();
+
 	return (
 		<Fragment>
 			<div className='navigation-container'>
@@ -27,9 +35,15 @@ const Navigation = () => {
 					<Link to='/budget' className='nav-link'>
 						Budget
 					</Link>
-					<Link to='/sign-in' className='nav-link'>
-						Sign in
-					</Link>
+					{currentUser ? (
+						<span className='nav-link' onClick={signOutHandler}>
+							Sign Out
+						</span>
+					) : (
+						<Link to='/sign-in' className='nav-link'>
+							Sign in
+						</Link>
+					)}
 					<a
 						href='https://www.facebook.com/opcinabreza/'
 						className='nav-icon'

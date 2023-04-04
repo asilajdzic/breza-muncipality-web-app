@@ -1,12 +1,22 @@
 import { initializeApp } from 'firebase/app';
 
 import {
+	createUserWithEmailAndPassword,
+	signInWithEmailAndPassword,
+	signOut,
+	onAuthStateChanged,
+	getAuth,
+} from 'firebase/auth';
+
+import {
 	getFirestore,
 	doc,
 	collection,
 	writeBatch,
 	query,
 	getDocs,
+	setDoc,
+	getDoc,
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -41,4 +51,66 @@ export const getCollection = async (collectionKey) => {
 
 	const querySnapshot = await getDocs(q);
 	return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+};
+
+const auth = getAuth();
+
+//for manually adding users, only 3 users needed for now
+
+export const createAuthUserWithEmailAndPassword = async (email, password) => {
+	if (!email || !password) return;
+	return await createUserWithEmailAndPassword(auth, email, password);
+};
+
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+	if (!email || !password) return;
+
+	return await signInWithEmailAndPassword(auth, email, password);
+};
+
+export const signOutUser = async () => await signOut(auth);
+
+export const onAuthStateChangedListener = (callback) =>
+	onAuthStateChanged(auth, callback);
+
+export const getCurrentUser = () => {
+	return new Promise((resolve, reject) => {
+		const unsubscribe = onAuthStateChanged(
+			auth,
+			(userAuth) => {
+				unsubscribe();
+				resolve(userAuth);
+			},
+			reject
+		);
+	});
+};
+
+export const createUserDocumentFromAuth = async (
+	userAuth,
+	additionalInformation = {}
+) => {
+	if (!userAuth) return;
+
+	const userDocRef = doc(db, 'users', userAuth.uid);
+
+	const userSnapshot = await getDoc(userDocRef);
+
+	if (!userSnapshot.exists()) {
+		const { displayName, email } = userAuth;
+		const createdAt = new Date();
+
+		try {
+			await setDoc(userDocRef, {
+				displayName,
+				email,
+				createdAt,
+				...additionalInformation,
+			});
+		} catch (error) {
+			console.log('error creating the user', error.message);
+		}
+	}
+
+	return userDocRef;
 };

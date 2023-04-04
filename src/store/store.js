@@ -10,6 +10,7 @@ const middlewares = [logger];
 const persistConfig = {
 	key: 'root',
 	storage,
+	blacklist: ['user'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
