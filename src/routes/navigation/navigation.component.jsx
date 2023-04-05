@@ -29,12 +29,6 @@ const Navigation = () => {
 					<Link to='/departments' className='nav-link'>
 						Departments
 					</Link>
-					<Link to='/council' className='nav-link'>
-						Council
-					</Link>
-					<Link to='/budget' className='nav-link'>
-						Budget
-					</Link>
 					{currentUser ? (
 						<span className='nav-link' onClick={signOutHandler}>
 							Sign Out

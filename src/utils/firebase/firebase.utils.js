@@ -1,7 +1,6 @@
 import { initializeApp } from 'firebase/app';
 
 import {
-	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 	signOut,
 	onAuthStateChanged,
@@ -54,13 +53,6 @@ export const getCollection = async (collectionKey) => {
 };
 
 const auth = getAuth();
-
-//for manually adding users, only 3 users needed for now
-
-export const createAuthUserWithEmailAndPassword = async (email, password) => {
-	if (!email || !password) return;
-	return await createUserWithEmailAndPassword(auth, email, password);
-};
 
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 	if (!email || !password) return;

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { signInAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
 
@@ -7,6 +8,7 @@ import './sign-in.styles.scss';
 const defaultFormFields = { email: '', password: '' };
 
 const SignIn = () => {
+	const navigate = useNavigate();
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { email, password } = formFields;
 
@@ -19,6 +21,7 @@ const SignIn = () => {
 		try {
 			signInAuthUserWithEmailAndPassword(email, password);
 			resetFormFields();
+			navigate('/');
 		} catch (error) {
 			console.log('user sign in failed', error);
 		}
