@@ -1,0 +1,34 @@
+@use '../../assets/color-variables.scss' as *;
+
+.admin-container {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	min-height: 70vh;
+	.admin-main-container {
+		flex: 1;
+	}
+	.admin-sidebar-container {
+		width: 240px;
+		background-color: $secondary;
+		color: $primary;
+		padding: 10px;
+		border: solid 1px blue;
+		border-right: none;
+		display: flex;
+		flex-direction: column;
+		row-gap: 10px;
+		.admin-sidebar-item {
+			width: 220px;
+			text-align: center;
+			font-size: 18px;
+			font-weight: bolder;
+			height: fit-content;
+			&:hover {
+				transform: scale(1.05);
+				font-weight: bold;
+				cursor: pointer;
+			}
+		}
+	}
+}

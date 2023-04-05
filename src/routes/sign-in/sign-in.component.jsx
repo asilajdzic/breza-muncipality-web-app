@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { signInAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
 
 import './sign-in.styles.scss';
+import { useNavigate } from 'react-router-dom';
 
 const defaultFormFields = { email: '', password: '' };
 
@@ -18,13 +18,14 @@ const SignIn = () => {
 
 	const submitFormHandler = async (e) => {
 		e.preventDefault();
+
 		try {
-			signInAuthUserWithEmailAndPassword(email, password);
-			resetFormFields();
+			await signInAuthUserWithEmailAndPassword(email, password);
 			navigate('/');
 		} catch (error) {
-			console.log('user sign in failed', error);
+			console.log(error.message);
 		}
+		resetFormFields();
 	};
 
 	const handleChange = (e) => {
