@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-import { addCollection } from '../../utils/firebase/firebase.utils';
-import { FIRESTORE_COLLECTION_TYPES } from '../../utils/firebase/firestore_collection_types';
+import { v4 as uuid } from 'uuid';
+
+import { createMessageDocument } from '../../utils/firebase/firebase.utils';
 
 import './message-form.styles.scss';
 
@@ -20,14 +21,13 @@ const MessageForm = ({ collectionTitle }) => {
 
 	const submitFormHandler = async (e) => {
 		e.preventDefault();
-
-		addCollection(FIRESTORE_COLLECTION_TYPES.FORMS, [
-			{
-				category: collectionTitle,
-				email: email,
-				message: message,
-			},
-		]);
+		const uid = uuid();
+		createMessageDocument(collectionTitle, {
+			uid: uid,
+			email: email,
+			to: collectionTitle,
+			message: message,
+		});
 
 		resetFormFields();
 	};

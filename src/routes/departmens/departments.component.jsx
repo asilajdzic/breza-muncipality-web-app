@@ -1,20 +1,14 @@
-import { useSelector } from 'react-redux';
-import Department from '../../components/department/department.component';
-import { selectEmployees } from '../../store/employees/employees.selector';
+import { DEPARTMENTS_DATA } from '../../utils/DEPARTMENTS_DATA';
 
-import { POSITION_TYPES } from '../../utils/positions/position-types';
+import Department from '../../components/department/department.component';
 
 import './departments.styles.scss';
 
 const Departments = () => {
-	const employees = useSelector(selectEmployees);
-	const departmentsArray = employees.filter(
-		(employees) => employees.category !== POSITION_TYPES.ELECTED
-	);
 	return (
 		<div className='departments-container'>
-			{departmentsArray.map((department, index) => (
-				<Department department={department} key={index} />
+			{DEPARTMENTS_DATA.map((department, index) => (
+				<Department key={index} department={department} />
 			))}
 		</div>
 	);

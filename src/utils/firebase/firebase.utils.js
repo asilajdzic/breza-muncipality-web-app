@@ -1,5 +1,4 @@
 import { initializeApp } from 'firebase/app';
-
 import {
 	signInWithEmailAndPassword,
 	signOut,
@@ -10,12 +9,10 @@ import {
 import {
 	getFirestore,
 	doc,
-	collection,
-	writeBatch,
-	query,
-	getDocs,
 	setDoc,
 	getDoc,
+	collection,
+	getDocs,
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -33,25 +30,6 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 const db = getFirestore();
 
-export const addCollection = async (collectionKey, objectsToAdd) => {
-	const collectionRef = collection(db, collectionKey);
-	const batch = writeBatch(db);
-	objectsToAdd.forEach((object) => {
-		const docRef = doc(collectionRef, object.category);
-		batch.set(docRef, object);
-	});
-
-	await batch.commit();
-};
-
-export const getCollection = async (collectionKey) => {
-	const collectionRef = collection(db, collectionKey);
-	const q = query(collectionRef);
-
-	const querySnapshot = await getDocs(q);
-	return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
-};
-
 const auth = getAuth();
 
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
@@ -66,9 +44,7 @@ export const onAuthStateChangedListener = (callback) =>
 
 export const createUserDocumentFromAuth = async (user) => {
 	if (!user) return;
-
-	const userDocRef = doc(db, 'users', user.uid);
-
+	const userDocRef = doc(db, 'Users', user.uid);
 	const userSnapshot = await getDoc(userDocRef);
 
 	if (!userSnapshot.exists()) {
@@ -84,6 +60,72 @@ export const createUserDocumentFromAuth = async (user) => {
 			console.log('error creating the user', error.message);
 		}
 	}
-
 	return userDocRef;
+};
+
+export const createMessageDocument = async (collection, messageToAdd) => {
+	if (!messageToAdd) return;
+	const { uid, to, email, message } = messageToAdd;
+	const messageDocRef = doc(db, collection, uid);
+	const docSnapshot = await getDoc(messageDocRef);
+
+	if (!docSnapshot.exists()) {
+		try {
+			const today = new Date();
+			const options = {
+				weekday: 'long',
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric',
+			};
+			await setDoc(messageDocRef, {
+				email: email,
+				to: to,
+				message: message,
+				sent: today.toLocaleDateString('en-US', options),
+			});
+		} catch (error) {
+			console.log('error creating the message document', error.message);
+		}
+	}
+
+	return messageDocRef;
+};
+
+export const getCollection = async (collectionKey) => {
+	const collectionDocRef = collection(db, collectionKey);
+	const querySnapshot = await getDocs(collectionDocRef);
+	return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+};
+
+export const createEmployeeDocument = async (collection, employeeToAdd) => {
+	if (!employeeToAdd) return;
+	const { uid, email, name, tasks, title, imageUrl, surname } = employeeToAdd;
+	const employeeDocRef = doc(db, collection, uid);
+	const docSnapshot = await getDoc(employeeDocRef);
+
+	if (!docSnapshot.exists()) {
+		try {
+			const today = new Date();
+			const options = {
+				weekday: 'long',
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric',
+			};
+			await setDoc(employeeDocRef, {
+				email: email,
+				name: name,
+				surname: surname,
+				title: title,
+				tasks: tasks,
+				image: imageUrl,
+				hired: today.toLocaleDateString('en-US', options),
+			});
+		} catch (error) {
+			console.log('error creating the employee document', error.message);
+		}
+	}
+
+	return employeeDocRef;
 };

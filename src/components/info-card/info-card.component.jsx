@@ -24,14 +24,13 @@ const InfoCard = ({ employee, text = false, jobDesc = false }) => {
 				</p>
 			)}
 			{employee.jobDesc && (
-				<p className='job-desc'>
-					Job Description:{' '}
+				<div className='job-description'>
 					<ul>
-						{employee.jobDesc.map((duty) => (
-							<li>{duty}</li>
+						{employee.jobDesc.map((duty, index) => (
+							<li key={index}>{duty}</li>
 						))}
 					</ul>{' '}
-				</p>
+				</div>
 			)}
 		</div>
 	);

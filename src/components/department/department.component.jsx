@@ -1,13 +1,22 @@
+import { useState, useEffect } from 'react';
+
+import { getCollection } from '../../utils/firebase/firebase.utils';
+
 import InfoCard from '../info-card/info-card.component';
+
 import './department.styles.scss';
 
 const Department = ({ department }) => {
-	const { category, employeesArray } = department;
-
+	const [departmentArray, setDepartmentArray] = useState([]);
+	useEffect(() => {
+		const getDepartmentEmployees = async () => await getCollection(department);
+		getDepartmentEmployees().then((data) => setDepartmentArray(data));
+		// eslint-disable-next-line
+	}, []);
 	return (
 		<div className='department-container'>
-			<h1>{category}</h1>
-			{employeesArray.map((employee, index) => (
+			<h1>{department}</h1>
+			{departmentArray.map((employee, index) => (
 				<InfoCard employee={employee} key={index} />
 			))}
 		</div>

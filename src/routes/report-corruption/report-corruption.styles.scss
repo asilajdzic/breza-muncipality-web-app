@@ -5,11 +5,10 @@
 	grid-template-columns: repeat(2, 1fr);
 	justify-content: space-around;
 	background-color: $primary;
-	height: 100vh;
-	padding: 8vh 0;
+	min-height: 120vh;
 	.report-corruption-text-container {
 		justify-self: center;
-		padding: 0 5vw;
+		padding: 100px 5vw;
 		p {
 			color: black;
 			font-size: 18px;

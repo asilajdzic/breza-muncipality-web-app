@@ -3,15 +3,11 @@ import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import {
-	getCollection,
 	onAuthStateChangedListener,
 	createUserDocumentFromAuth,
 } from './utils/firebase/firebase.utils';
 
-import { setEmployees } from './store/employees/employees.action';
 import { setCurrentUser } from './store/user/user.action';
-
-import { FIRESTORE_COLLECTION_TYPES } from './utils/firebase/firestore_collection_types';
 
 import Home from './routes/home/home.component';
 import Navigation from './routes/navigation/navigation.component';
@@ -26,16 +22,6 @@ import Admin from './routes/admin/admin.component';
 
 function App() {
 	const dispatch = useDispatch();
-	useEffect(() => {
-		const getEmployees = async () => {
-			const employees = await getCollection(
-				FIRESTORE_COLLECTION_TYPES.EMPLOYEES
-			);
-			dispatch(setEmployees(employees));
-		};
-		getEmployees();
-		// eslint-disable-next-line
-	}, []);
 	useEffect(() => {
 		const unsubscribe = onAuthStateChangedListener((user) => {
 			if (user) createUserDocumentFromAuth(user);
