@@ -1,69 +1,26 @@
+import { useState, useEffect } from 'react';
+
+import { getCollection } from '../../utils/firebase/firebase.utils';
+
 import ArticlePreview from '../article-preview/article-preview.component';
 
 import './articles-preview.styles.scss';
 
-const ARTICLES = [
-	{
-		title: 'Article Title',
-		imageUrl: 'https://i.ibb.co/WDqJ93M/portrait.jpg',
-		text: 'article text',
-		url: 'https://www.africau.edu/images/default/sample.pdf',
-	},
-	{
-		title: 'Article Title',
-		imageUrl: 'https://i.ibb.co/WDqJ93M/portrait.jpg',
-		text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque dolorum, placeat magnam cumque ut alias accusantium maiores repudiandae cupiditate natus, iusto eum aperiam perferendis tenetur accusamus. Vitae officia cupiditate sint! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione quae autem fuga illo exercitationem veniam inventore, corporis excepturi amet nemo accusamus? Non sed laboriosam inventore reiciendis architecto quae, enim culpa?',
-		url: './anyFile.pdf',
-	},
-	{
-		title: 'Article Title',
-		imageUrl: 'https://i.ibb.co/WDqJ93M/portrait.jpg',
-		text: 'article text',
-		url: './anyFile.pdf',
-	},
-	{
-		title: 'Article Title',
-		imageUrl: 'https://i.ibb.co/WDqJ93M/portrait.jpg',
-		text: 'article text',
-		url: './anyFile.pdf',
-	},
-	{
-		title: 'Article Title',
-		imageUrl: 'https://i.ibb.co/WDqJ93M/portrait.jpg',
-		text: 'article text',
-		url: './anyFile.pdf',
-	},
-	{
-		title: 'Article Title',
-		imageUrl: 'https://i.ibb.co/WDqJ93M/portrait.jpg',
-		text: 'article text',
-		url: './anyFile.pdf',
-	},
-	{
-		title: 'Article Title',
-		imageUrl: 'https://i.ibb.co/WDqJ93M/portrait.jpg',
-		text: 'article text',
-		url: './anyFile.pdf',
-	},
-	{
-		title: 'Article Title',
-		imageUrl: 'https://i.ibb.co/WDqJ93M/portrait.jpg',
-		text: 'article text',
-		url: 'https://www.africau.edu/images/default/sample.pdf',
-	},
-	{
-		title: 'Article Title',
-		imageUrl: 'https://i.ibb.co/WDqJ93M/portrait.jpg',
-		text: 'article text',
-		url: 'https://www.africau.edu/images/default/sample.pdf',
-	},
-];
-
 const ArticlesPreview = () => {
+	const [articles, setArticles] = useState([]);
+	useEffect(() => {
+		getCollection('Articles').then((data) => {
+			const articles = data;
+			const sortedArticles = articles.sort(
+				(a, b) => new Date(a.published) - new Date(b.published)
+			);
+			setArticles(sortedArticles);
+		});
+	}, []);
 	return (
 		<div className='articles-container'>
 			<h1>Latest news</h1>
-			{ARTICLES.map(
+			{articles.map(
 				(article, index) =>
 					index < 7 && (
 						<ArticlePreview article={article} key={index} index={index} />

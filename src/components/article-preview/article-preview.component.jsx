@@ -6,9 +6,11 @@ import './article-preview.styles.scss';
 
 const ArticlePreview = ({ article, index }) => {
 	const [showBoolean, setShowBoolean] = useState(false);
-	const { title, text, imageUrl, url } = article;
+	const { title, imageUrl, fileUrl } = article;
 	const className = index === 0 ? 'first-element' : 'article-container';
-
+	const onClose = () => {
+		setShowBoolean(false);
+	};
 	return (
 		<Fragment>
 			<span
@@ -19,9 +21,10 @@ const ArticlePreview = ({ article, index }) => {
 			>
 				<img src={imageUrl} alt='Error loading resource' border='0'></img>
 				<h1>{title}</h1>
-				<p>{text}</p>
 			</span>
-			{showBoolean && <DisplayPDF file={url}></DisplayPDF>}
+			{showBoolean && (
+				<DisplayPDF onClick={onClose} file={fileUrl}></DisplayPDF>
+			)}
 		</Fragment>
 	);
 };

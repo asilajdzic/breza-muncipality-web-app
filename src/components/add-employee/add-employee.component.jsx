@@ -29,7 +29,7 @@ const AddEmployee = () => {
 	const submitFormHandler = async (e) => {
 		e.preventDefault();
 		const uid = uuid();
-		createEmployeeDocument(department, {
+		await createEmployeeDocument(department, {
 			uid: uid,
 			name: name,
 			surname: surname,

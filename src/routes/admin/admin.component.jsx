@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../store/user/user.selector';
 
 import Messages from '../../components/messages/messages.component';
 import Dashboard from '../../components/dashboard/dashboard.component';
 import AddEmployee from '../../components/add-employee/add-employee.component';
+import AddArticle from '../../components/add-article/add-article.component';
 
 import './admin.styles.scss';
-import { selectCurrentUser } from '../../store/user/user.selector';
 
 const Admin = () => {
 	const currentUser = useSelector(selectCurrentUser);
@@ -28,6 +29,9 @@ const Admin = () => {
 				break;
 			case 'Add an Employee':
 				setCurrentComponent(<AddEmployee />);
+				break;
+			case 'Add an Article':
+				setCurrentComponent(<AddArticle />);
 				break;
 			default:
 				setCurrentComponent(currentComponent);
@@ -74,7 +78,11 @@ const Admin = () => {
 					>
 						Add an Employee
 					</span>
-					<span className='admin-sidebar-item' onClick={handleOnClick}>
+					<span
+						id='Add an Article'
+						className='admin-sidebar-item'
+						onClick={handleOnClick}
+					>
 						Add an Article
 					</span>
 				</section>

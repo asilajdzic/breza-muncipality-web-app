@@ -129,3 +129,22 @@ export const createEmployeeDocument = async (collection, employeeToAdd) => {
 
 	return employeeDocRef;
 };
+
+export const createArticleDocument = async (articleToAdd) => {
+	const { title, fileUrl, imageUrl, uid } = articleToAdd;
+	const articlesDocRef = doc(db, 'Articles', uid);
+	const docSnapshot = await getDoc(articlesDocRef);
+	if (!docSnapshot.exists()) {
+		try {
+			const today = new Date();
+			await setDoc(articlesDocRef, {
+				title: title,
+				fileUrl: fileUrl,
+				imageUrl: imageUrl,
+				published: today,
+			});
+		} catch (error) {
+			console.log('error creating the article document', error.message);
+		}
+	}
+};
