@@ -21,7 +21,7 @@ const SignIn = () => {
 
 		try {
 			await signInAuthUserWithEmailAndPassword(email, password);
-			navigate('/');
+			navigate('/admin');
 		} catch (error) {
 			console.log(error.message);
 		}

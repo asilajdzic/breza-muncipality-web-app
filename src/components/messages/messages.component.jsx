@@ -22,12 +22,16 @@ const Messages = ({ category = 'Mayor' }) => {
 	};
 	return (
 		<div className='messages-container'>
-			<section className='message-container'>
-				From: {currentMessage.email} <br />
-				Message: <br />
-				{currentMessage.message} <br />
-				Sent at: {currentMessage.sent}
-			</section>
+			{currentMessage !== messageInitialState ? (
+				<section className='message-container'>
+					From: {currentMessage.email} <br />
+					Message: <br />
+					{currentMessage.message} <br />
+					Sent at: {currentMessage.sent}
+				</section>
+			) : (
+				<section className='message-container' />
+			)}
 			<section className='messages-sidebar-container'>
 				{messages.map((message, index) => (
 					<span

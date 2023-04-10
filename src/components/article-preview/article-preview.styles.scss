@@ -19,6 +19,9 @@
 		text-overflow: ellipsis;
 		margin: 5px 0;
 	}
+	&:hover {
+		cursor: pointer;
+	}
 }
 .first-element {
 	grid-column-start: 1;
@@ -42,5 +45,8 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		margin: 5px 0;
+	}
+	&:hover {
+		cursor: pointer;
 	}
 }
