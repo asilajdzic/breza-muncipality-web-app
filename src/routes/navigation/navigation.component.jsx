@@ -44,7 +44,7 @@ const Navigation = () => {
 						</Link>
 					)}
 					<a
-						href='https://www.facebook.com/opcinabreza/'
+						href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
 						className='nav-icon'
 						target='_blank'
 						rel='noreferrer'
@@ -52,7 +52,7 @@ const Navigation = () => {
 						<FBLogo />
 					</a>
 					<a
-						href='https://www.youtube.com/channel/UCOakqrxQuiaPcGh4dn-INuA'
+						href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
 						className='nav-icon'
 						target='_blank'
 						rel='noreferrer'
