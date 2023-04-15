@@ -7,7 +7,26 @@
 
 	.message-container {
 		flex: 1;
-		padding: 8vw;
+		margin: 6vw;
+		padding: 1vw;
+		border: 2px solid $secondary;
+		display: flex;
+		flex-direction: column;
+		row-gap: 5px;
+		p {
+			padding: 0;
+			margin: 0;
+		}
+		.message-header {
+			height: fit-content;
+		}
+		.message-body {
+			flex: 1;
+		}
+		.message-footer {
+			height: fit-content;
+			text-align: right;
+		}
 	}
 	.messages-sidebar-container {
 		width: 250px;

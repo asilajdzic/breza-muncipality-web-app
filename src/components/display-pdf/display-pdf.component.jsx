@@ -1,7 +1,6 @@
 import './display-pdf.styles.scss';
 
 const DisplayPDF = ({ file, onClick }) => {
-	//can add useEffect to set body overflow to hidden to make it so user cannot scroll the background
 	return (
 		<div className='pdf-viewer-container'>
 			<iframe

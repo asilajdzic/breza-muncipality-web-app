@@ -24,10 +24,12 @@ const Messages = ({ category = 'Mayor' }) => {
 		<div className='messages-container'>
 			{currentMessage !== messageInitialState ? (
 				<section className='message-container'>
-					From: {currentMessage.email} <br />
-					Message: <br />
-					{currentMessage.message} <br />
-					Sent at: {currentMessage.sent}
+					<p className='message-header'>From: {currentMessage.email}</p>
+					<p className='message-body'>
+						Message: <br />
+						{currentMessage.message}{' '}
+					</p>
+					<p className='message-footer'>Sent at: {currentMessage.sent}</p>
 				</section>
 			) : (
 				<section className='message-container' />
