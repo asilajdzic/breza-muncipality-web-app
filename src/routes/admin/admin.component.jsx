@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { selectCurrentUser } from '../../store/user/user.selector';
+import { useContext, useState } from 'react';
+import { UserContext } from '../../contexts/user.context';
 
 import Messages from '../../components/messages/messages.component';
 import Dashboard from '../../components/dashboard/dashboard.component';
@@ -10,7 +9,7 @@ import AddArticle from '../../components/add-article/add-article.component';
 import './admin.styles.scss';
 
 const Admin = () => {
-	const currentUser = useSelector(selectCurrentUser);
+	const { currentUser } = useContext(UserContext);
 	const [currentComponent, setCurrentComponent] = useState(<Dashboard />);
 
 	const handleOnClick = (e) => {

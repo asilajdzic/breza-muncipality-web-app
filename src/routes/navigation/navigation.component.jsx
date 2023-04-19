@@ -1,9 +1,8 @@
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
-import { useSelector } from 'react-redux';
-import { selectCurrentUser } from '../../store/user/user.selector';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
+import { UserContext } from '../../contexts/user.context';
 
 import { ReactComponent as MunicipalityLogo } from '../../assets/logo.svg';
 import { ReactComponent as FBLogo } from '../../assets/facebook-icon.svg';
@@ -12,7 +11,7 @@ import { ReactComponent as YTLogo } from '../../assets/youtube-icon.svg';
 import './navigation.styles.scss';
 
 const Navigation = () => {
-	const currentUser = useSelector(selectCurrentUser);
+	const { currentUser } = useContext(UserContext);
 
 	const signOutHandler = () => signOutUser();
 

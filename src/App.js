@@ -1,13 +1,5 @@
-import { Fragment, useEffect } from 'react';
+import { Fragment } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
-import {
-	onAuthStateChangedListener,
-	createUserDocumentFromAuth,
-} from './utils/firebase/firebase.utils';
-
-import { setCurrentUser } from './store/user/user.action';
 
 import Home from './routes/home/home.component';
 import Navigation from './routes/navigation/navigation.component';
@@ -21,15 +13,6 @@ import SignIn from './routes/sign-in/sign-in.component';
 import Admin from './routes/admin/admin.component';
 
 function App() {
-	const dispatch = useDispatch();
-	useEffect(() => {
-		const unsubscribe = onAuthStateChangedListener((user) => {
-			if (user) createUserDocumentFromAuth(user);
-			dispatch(setCurrentUser(user));
-		});
-		return unsubscribe;
-		// eslint-disable-next-line
-	}, []);
 	return (
 		<Fragment>
 			<Routes>
@@ -41,7 +24,7 @@ function App() {
 					<Route path='/report-corruption' element={<ReportCorruption />} />
 					<Route path='/departments' element={<Departments />} />
 					<Route path='/sign-in' element={<SignIn />} />
-					<Route path='admin' element={<Admin />} />
+					<Route path='/admin' element={<Admin />} />
 				</Route>
 			</Routes>
 			<Footer />
