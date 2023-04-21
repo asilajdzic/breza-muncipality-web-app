@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { FUNCTIONALITIES_DATA } from '../../utils/data/FUNCTIONALITIES_DATA';
+import { FUNCTIONALITIES_DATA } from '../../utils/data/functionalities.data';
 
 import ArticlesPreview from '../../components/articles-preview/articles-preview.component';
 import FunctionalityCard from '../../components/functionality-card/functionality-card.component';

@@ -11,8 +11,9 @@ const ArticlesPreview = () => {
 	const [articles, setArticles] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	useEffect(() => {
+		const getArticles = async () => await getCollection('Articles');
 		setIsLoading(true);
-		getCollection('Articles').then((data) => {
+		getArticles().then((data) => {
 			const articles = data;
 			const sortedArticles = articles.sort(
 				(a, b) => new Date(a.published) - new Date(b.published)

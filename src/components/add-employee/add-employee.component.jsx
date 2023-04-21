@@ -3,7 +3,7 @@ import { v4 as uuid } from 'uuid';
 
 import { createEmployeeDocument } from '../../utils/firebase/firebase.utils';
 
-import { DEPARTMENTS_DATA } from '../../utils/data/DEPARTMENTS_DATA';
+import { DEPARTMENTS_DATA } from '../../utils/data/departments.data';
 
 import './add-employee.styles.scss';
 

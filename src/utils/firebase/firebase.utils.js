@@ -4,6 +4,7 @@ import {
 	signOut,
 	onAuthStateChanged,
 	getAuth,
+	createUserWithEmailAndPassword,
 } from 'firebase/auth';
 
 import {
@@ -147,4 +148,9 @@ export const createArticleDocument = async (articleToAdd) => {
 			console.log('error creating the article document', error.message);
 		}
 	}
+};
+
+export const signUpUser = async (email, password) => {
+	if (!email || !password) return;
+	return await createUserWithEmailAndPassword(auth, email, password);
 };

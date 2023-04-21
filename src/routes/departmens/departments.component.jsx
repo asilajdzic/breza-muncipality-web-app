@@ -1,4 +1,4 @@
-import { DEPARTMENTS_DATA } from '../../utils/data/DEPARTMENTS_DATA';
+import { DEPARTMENTS_DATA } from '../../utils/data/departments.data';
 
 import Department from '../../components/department/department.component';
 
