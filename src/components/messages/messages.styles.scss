@@ -13,6 +13,49 @@
 		display: flex;
 		flex-direction: column;
 		row-gap: 5px;
+		position: relative;
+		.answer-dialog {
+			margin-top: -1vw;
+			width: 100%;
+			height: 100%;
+			max-width: none;
+			max-height: none;
+			border: none;
+			.answer-form-container {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+				height: 100%;
+				width: 100%;
+				justify-content: space-between;
+				.answer-text {
+					border: none;
+					background-color: $primary;
+					width: 100%;
+					height: 90%;
+					font-size: 24px;
+					resize: none;
+					padding: 5px;
+					border-radius: 5px;
+					&:focus {
+						outline: none;
+					}
+				}
+				.submit-answer-btn {
+					height: 30px;
+					width: 100px;
+					background-color: $secondary;
+					border: none;
+					font: 20px bolder;
+					color: $primary;
+					&:hover {
+						transform: scale(1.05);
+						font-weight: bolder;
+						cursor: pointer;
+					}
+				}
+			}
+		}
 		p {
 			padding: 0;
 			margin: 0;
@@ -25,7 +68,26 @@
 		}
 		.message-footer {
 			height: fit-content;
-			text-align: right;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+
+			.timestamp {
+				text-align: right;
+			}
+			.answer-btn {
+				height: 30px;
+				width: 80px;
+				background-color: $secondary;
+				border: none;
+				font: 18px bolder;
+				color: $primary;
+				&:hover {
+					transform: scale(1.05);
+					font-weight: bolder;
+					cursor: pointer;
+				}
+			}
 		}
 	}
 	.messages-sidebar-container {

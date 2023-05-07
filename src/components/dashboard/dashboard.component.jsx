@@ -48,7 +48,9 @@ const Dashboard = () => {
 				<p>List of current Users: </p>
 				<ul>
 					{users.map((user, index) => (
-						<li key={index}>{user.email}</li>
+						<li className='list-item' key={index}>
+							{user.email}
+						</li>
 					))}
 				</ul>
 			</div>

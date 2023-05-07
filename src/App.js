@@ -11,6 +11,7 @@ import ReportCorruption from './routes/report-corruption/report-corruption.compo
 import Departments from './routes/departmens/departments.component';
 import SignIn from './routes/sign-in/sign-in.component';
 import Admin from './routes/admin/admin.component';
+import Answers from './routes/answers/answers.component';
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
 					<Route path='/departments' element={<Departments />} />
 					<Route path='/sign-in' element={<SignIn />} />
 					<Route path='/admin' element={<Admin />} />
+					<Route path='/answers' element={<Answers />} />
 				</Route>
 			</Routes>
 			<Footer />

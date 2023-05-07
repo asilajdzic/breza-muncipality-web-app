@@ -46,9 +46,21 @@
 		min-width: fit-content;
 		height: 100%;
 		justify-content: center;
+		p {
+			font-size: 24px;
+			margin: 0;
+		}
 		ul {
-			li {
+			padding: 0;
+			margin-left: 15px;
+			border-top: 1px solid $secondary;
+			border-left: 1px solid $secondary;
+			.list-item {
+				padding-left: 25px;
+				font-size: 20px;
 				list-style: none;
+				border-right: 1px solid $secondary;
+				border-bottom: 1px solid $secondary;
 			}
 		}
 	}

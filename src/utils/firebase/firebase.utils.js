@@ -14,6 +14,7 @@ import {
 	getDoc,
 	collection,
 	getDocs,
+	deleteDoc,
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -80,9 +81,10 @@ export const createMessageDocument = async (collection, messageToAdd) => {
 				day: 'numeric',
 			};
 			await setDoc(messageDocRef, {
-				email: email,
-				to: to,
-				message: message,
+				uid,
+				message,
+				to,
+				email,
 				sent: today.toLocaleDateString('en-US', options),
 			});
 		} catch (error) {
@@ -91,6 +93,32 @@ export const createMessageDocument = async (collection, messageToAdd) => {
 	}
 
 	return messageDocRef;
+};
+
+export const createAnswerDocument = async (collection, answerToAdd) => {
+	if (!answerToAdd) return;
+	const { uid, message, answer } = answerToAdd;
+	const answerDocRef = doc(db, collection, uid);
+	const docSnapshot = await getDoc(answerDocRef);
+
+	if (!docSnapshot.exists()) {
+		try {
+			const today = new Date();
+			const options = {
+				weekday: 'long',
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric',
+			};
+			await setDoc(answerDocRef, {
+				message,
+				answer,
+				sent: today.toLocaleDateString('en-US', options),
+			});
+		} catch (error) {
+			console.log('error creating the answer document', error.message);
+		}
+	}
 };
 
 export const getCollection = async (collectionKey) => {
@@ -153,4 +181,15 @@ export const createArticleDocument = async (articleToAdd) => {
 export const signUpUser = async (email, password) => {
 	if (!email || !password) return;
 	return await createUserWithEmailAndPassword(auth, email, password);
+};
+
+export const deleteDocument = async (collectionKey, uid) => {
+	const collectionRef = collection(db, collectionKey);
+	const documentRef = doc(collectionRef, uid);
+
+	try {
+		await deleteDoc(documentRef);
+	} catch (error) {
+		console.error('Error deleting document: ', error);
+	}
 };
