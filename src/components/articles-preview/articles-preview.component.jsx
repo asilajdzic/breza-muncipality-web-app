@@ -10,17 +10,18 @@ import './articles-preview.styles.scss';
 const ArticlesPreview = () => {
 	const [articles, setArticles] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+
 	useEffect(() => {
-		const getArticles = async () => await getCollection('Articles');
-		setIsLoading(true);
-		getArticles().then((data) => {
-			const articles = data;
-			const sortedArticles = articles.sort(
+		const getArticles = async () => {
+			setIsLoading(true);
+			const data = await getCollection('Articles');
+			const sortedData = data.sort(
 				(a, b) => new Date(a.published) - new Date(b.published)
 			);
-			setArticles(sortedArticles);
-		});
-		setIsLoading(false);
+			setArticles(sortedData);
+			setIsLoading(false);
+		};
+		getArticles();
 	}, []);
 	return (
 		<Fragment>

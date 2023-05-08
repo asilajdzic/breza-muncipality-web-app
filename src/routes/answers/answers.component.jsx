@@ -15,10 +15,13 @@ const Answers = () => {
 	const [answers, setAnswers] = useState([answerInitialState]);
 	const [isLoading, setIsLoading] = useState(true);
 	useEffect(() => {
-		const getAnswers = async () => await getCollection('Answers');
-		setIsLoading(true);
-		getAnswers().then((data) => setAnswers(data));
-		setIsLoading(false);
+		const getAnswers = async () => {
+			setIsLoading(true);
+			const data = await getCollection('Answers');
+			setAnswers(data);
+			setIsLoading(false);
+		};
+		getAnswers();
 	}, []);
 
 	return (

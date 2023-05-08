@@ -31,7 +31,11 @@ const Messages = ({ category = 'Mayor' }) => {
 	const { message, answer } = formFields;
 
 	useEffect(() => {
-		getCollection(category).then((data) => setMessages(data));
+		const getMessages = async () => {
+			const data = await getCollection(category);
+			setMessages(data);
+		};
+		getMessages();
 	}, [category, messages]);
 
 	const onClickHandler = (e) => {
@@ -82,7 +86,7 @@ const Messages = ({ category = 'Mayor' }) => {
 			<section className='message-container'>
 				{currentMessage !== messageInitialState && (
 					<Fragment>
-						{isAnswering && (
+						{isAnswering ? (
 							<dialog className='answer-dialog' open>
 								<form
 									method='dialog'
@@ -93,24 +97,28 @@ const Messages = ({ category = 'Mayor' }) => {
 										onChange={handleChange}
 										placeholder='Type your answer here:'
 										name='answer'
+										required
 										value={answer}
 										className='answer-text'
 									></textarea>
 									<button className='submit-answer-btn'>Submit</button>
 								</form>
 							</dialog>
+						) : (
+							<Fragment>
+								<p className='message-header'>From: {currentMessage.email}</p>
+								<p className='message-body'>
+									Message: <br />
+									{currentMessage.message}{' '}
+								</p>
+								<div className='message-footer'>
+									<p className='timestamp'>Sent at: {currentMessage.sent}</p>
+									<button className='answer-btn' onClick={onClickAnswerHandler}>
+										Answer
+									</button>
+								</div>
+							</Fragment>
 						)}
-						<p className='message-header'>From: {currentMessage.email}</p>
-						<p className='message-body'>
-							Message: <br />
-							{currentMessage.message}{' '}
-						</p>
-						<div className='message-footer'>
-							<p className='timestamp'>Sent at: {currentMessage.sent}</p>
-							<button className='answer-btn' onClick={onClickAnswerHandler}>
-								Answer
-							</button>
-						</div>
 					</Fragment>
 				)}
 			</section>

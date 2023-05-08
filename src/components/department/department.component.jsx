@@ -12,12 +12,16 @@ const Department = ({ department }) => {
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		const getDepartmentEmployees = async () => await getCollection(department);
-		setIsLoading(true);
-		getDepartmentEmployees().then((data) => setDepartmentArray(data));
-		setIsLoading(false);
+		const getDepartmentEmployees = async () => {
+			setIsLoading(true);
+			const data = await getCollection(department);
+			setDepartmentArray(data);
+			setIsLoading(false);
+		};
+		getDepartmentEmployees();
 		// eslint-disable-next-line
 	}, []);
+
 	return (
 		<div className='department-container'>
 			<h1>{department}</h1>
