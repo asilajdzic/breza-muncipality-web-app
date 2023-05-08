@@ -1,0 +1,26 @@
+@use '../../assets/color-variables.scss' as *;
+
+.answers-container {
+	margin: 16vh 5vw;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 15px;
+	.answer-container {
+		align-content: center;
+		justify-self: center;
+		height: max-content;
+		min-height: 300px;
+		min-width: 250px;
+		border: solid 2px $secondary;
+		color: black;
+		display: flex;
+		flex-direction: column;
+		.message {
+			color: black;
+			font-size: 18;
+			text-transform: capitalize;
+			text-align: justify;
+			padding: 5px;
+		}
+	}
+}

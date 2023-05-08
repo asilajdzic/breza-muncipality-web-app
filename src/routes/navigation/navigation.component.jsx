@@ -28,6 +28,9 @@ const Navigation = () => {
 					<Link to='/departments' className='nav-link'>
 						Departments
 					</Link>
+					<Link to='/answers' className='nav-link'>
+						Answers
+					</Link>
 					{currentUser ? (
 						<Fragment>
 							<Link to='/admin' className='nav-link'>

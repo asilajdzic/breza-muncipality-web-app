@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 
 import { getCollection } from '../../utils/firebase/firebase.utils';
+
+import Spinner from '../../components/spinner/spinner.component';
 
 import './answers.styles.scss';
 
@@ -10,11 +12,35 @@ const answerInitialState = {
 };
 
 const Answers = () => {
-	const [answers, setAnswers] = useState(answerInitialState);
+	const [answers, setAnswers] = useState([answerInitialState]);
+	const [isLoading, setIsLoading] = useState(true);
+	useEffect(() => {
+		const getAnswers = async () => await getCollection('Answers');
+		setIsLoading(true);
+		getAnswers().then((data) => setAnswers(data));
+		setIsLoading(false);
+	}, []);
 
-	// useEffect to load all answers, first add answer feature
-
-	return <div>test</div>;
+	return (
+		<Fragment>
+			{isLoading ? (
+				<Spinner />
+			) : (
+				<div className='answers-container'>
+					{answers.map((answer) => (
+						<div className='answer-container'>
+							<div className='message'>
+								<b>Message:</b> {answer.message}
+							</div>
+							<div className='message'>
+								<b>Answer:</b> {answer.answer}
+							</div>
+						</div>
+					))}
+				</div>
+			)}
+		</Fragment>
+	);
 };
 
 export default Answers;
