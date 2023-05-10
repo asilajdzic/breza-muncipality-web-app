@@ -1,3 +1,11 @@
 .map-container {
 	padding: 30px 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	.map {
+		width: 85%;
+		max-width: 720px;
+		aspect-ratio: 16/10;
+	}
 }
