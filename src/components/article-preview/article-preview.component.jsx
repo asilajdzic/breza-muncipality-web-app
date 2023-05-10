@@ -4,10 +4,9 @@ import DisplayPDF from '../display-pdf/display-pdf.component';
 
 import './article-preview.styles.scss';
 
-const ArticlePreview = ({ article, index }) => {
+const ArticlePreview = ({ article }) => {
 	const [showBoolean, setShowBoolean] = useState(false);
 	const { title, imageUrl, fileUrl } = article;
-	const className = index === 0 ? 'first-element' : 'article-container';
 	const onOpen = () => {
 		setShowBoolean(true);
 		document.body.classList.add('modal-open');
@@ -18,7 +17,7 @@ const ArticlePreview = ({ article, index }) => {
 	};
 	return (
 		<Fragment>
-			<span onClick={onOpen} className={className}>
+			<span onClick={onOpen} className='article-container'>
 				<img src={imageUrl} alt='Error loading resource' border='0'></img>
 				<h1>{title}</h1>
 			</span>

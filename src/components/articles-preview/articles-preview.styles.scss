@@ -1,9 +1,7 @@
-.articles-container {
+.articles-preview-container {
 	width: 80%;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	column-gap: 30px;
-	h1 {
-		color: black;
-	}
+	justify-self: center;
 }

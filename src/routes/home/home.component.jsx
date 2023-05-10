@@ -26,7 +26,8 @@ const Home = () => {
 						/>
 					))}
 				</div>
-				<ArticlesPreview />
+				<h1>Latest news</h1>
+				<ArticlesPreview noLimit={false} />
 				<GoogleMap />
 			</div>
 			<Outlet />

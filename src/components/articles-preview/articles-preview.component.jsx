@@ -7,7 +7,7 @@ import Spinner from '../spinner/spinner.component';
 
 import './articles-preview.styles.scss';
 
-const ArticlesPreview = () => {
+const ArticlesPreview = (noLimit = true) => {
 	const [articles, setArticles] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -16,7 +16,7 @@ const ArticlesPreview = () => {
 			setIsLoading(true);
 			const data = await getCollection('Articles');
 			const sortedData = data.sort(
-				(a, b) => new Date(a.published) - new Date(b.published)
+				(a, b) => b.published.seconds - a.published.seconds
 			);
 			setArticles(sortedData);
 			setIsLoading(false);
@@ -28,15 +28,16 @@ const ArticlesPreview = () => {
 			{isLoading ? (
 				<Spinner />
 			) : (
-				<div className='articles-container'>
-					<h1>Latest news</h1>
-					{articles.map(
-						(article, index) =>
-							index < 7 && (
-								<ArticlePreview article={article} key={index} index={index} />
-							)
-					)}
-				</div>
+				<Fragment>
+					<div className='articles-preview-container'>
+						{articles.map(
+							(article, index) =>
+								(noLimit || index < 8) && (
+									<ArticlePreview article={article} key={index} />
+								)
+						)}
+					</div>
+				</Fragment>
 			)}
 		</Fragment>
 	);

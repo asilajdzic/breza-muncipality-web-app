@@ -12,6 +12,7 @@ import Departments from './routes/departmens/departments.component';
 import SignIn from './routes/sign-in/sign-in.component';
 import Admin from './routes/admin/admin.component';
 import Answers from './routes/answers/answers.component';
+import Articles from './routes/articles/articles.component';
 
 function App() {
 	return (
@@ -27,6 +28,7 @@ function App() {
 					<Route path='/sign-in' element={<SignIn />} />
 					<Route path='/admin' element={<Admin />} />
 					<Route path='/answers' element={<Answers />} />
+					<Route path='/articles' element={<Articles />} />
 				</Route>
 			</Routes>
 			<Footer />

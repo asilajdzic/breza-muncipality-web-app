@@ -30,8 +30,8 @@ const Answers = () => {
 				<Spinner />
 			) : (
 				<div className='answers-container'>
-					{answers.map((answer) => (
-						<div className='answer-container'>
+					{answers.map((answer, index) => (
+						<div key={index} className='answer-container'>
 							<div className='message'>
 								<b>Message:</b> {answer.message}
 							</div>
