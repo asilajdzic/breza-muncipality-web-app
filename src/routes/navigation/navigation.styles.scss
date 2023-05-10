@@ -2,8 +2,8 @@
 
 .navigation-container {
 	display: flex;
-	justify-content: space-between;
-	height: 70px;
+	justify-content: flex-end;
+	position: relative;
 	min-height: 70px;
 	min-width: 100%;
 	width: fit-content;
@@ -11,19 +11,23 @@
 	background-color: $secondary;
 
 	.logo-container {
-		width: 9vw;
+		position: absolute;
+		left: 1.2vw;
+		top: 1.2vw;
+		width: 8vw;
 		z-index: 1;
-		margin: 1.5vw;
-		min-width: 50px;
+		min-width: 75px;
 	}
 
 	.nav-links-container {
+		margin: auto 0;
 		width: fit-content;
+		max-width: 80%;
 		height: 100%;
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
 		justify-content: flex-end;
-		justify-content: space-between;
 
 		.nav-link {
 			cursor: pointer;
@@ -36,7 +40,7 @@
 			cursor: pointer;
 			height: 25px;
 			aspect-ratio: 1;
-			margin: auto 5px;
+			margin: 10px 5px;
 		}
 	}
 }

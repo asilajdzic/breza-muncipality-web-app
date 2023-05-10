@@ -6,40 +6,24 @@
 	img {
 		width: 100%;
 		aspect-ratio: 1;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 	h1 {
 		margin: 5px 0;
 		font-size: 18px;
+		width: fit-content;
+		&:hover {
+			cursor: pointer;
+		}
 	}
-	p {
-		text-align: justify;
-		max-height: 130px;
-		width: 100%;
-		overflow: hidden;
-		text-overflow: ellipsis;
+	h2 {
 		margin: 5px 0;
-	}
-	&:hover {
-		cursor: pointer;
-	}
-}
-.first-element {
-	grid-column-start: 1;
-	grid-column-end: 3;
-	color: black;
-	width: 100%;
-	padding: 20px;
-	justify-self: center;
-	img {
-		width: 100%;
-		aspect-ratio: 1.65;
-	}
-	h1 {
-		margin: 5px 0;
-		font-size: 18px;
-		text-align: justify;
-	}
-	&:hover {
-		cursor: pointer;
+		font-size: 14px;
+		width: fit-content;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }

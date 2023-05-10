@@ -25,7 +25,7 @@ const ImageSlider = () => {
 	}
 
 	return (
-		<section>
+		<div className='image-container'>
 			<span className='left-arrow' onClick={prevSlide}>
 				&#10092;
 			</span>
@@ -48,7 +48,7 @@ const ImageSlider = () => {
 					</div>
 				);
 			})}
-		</section>
+		</div>
 	);
 };
 

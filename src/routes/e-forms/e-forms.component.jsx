@@ -1,9 +1,10 @@
 import DownloadFile from '../../components/download-file/download-file.component';
 
-import { DOWNLOAD_FILE_NAMES } from '../../utils/files/download-file-names';
-
 import './e-forms.styles.scss';
 
+const DOWNLOAD_FILE_NAMES = {
+	anyFile: 'anyFile.pdf',
+};
 // will add collection to firestore and read data from there
 const EFORMS = [
 	{ file: DOWNLOAD_FILE_NAMES.anyFile, name: 'Any File 1' },

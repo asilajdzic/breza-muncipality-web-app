@@ -1,0 +1,7 @@
+.shortcuts-container {
+	width: 100%;
+	padding: 5% 10%;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	column-gap: 10px;
+}

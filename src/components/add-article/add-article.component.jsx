@@ -7,13 +7,14 @@ import './add-article.styles.scss';
 
 const defaultFormFields = {
 	title: '',
+	snippet: '',
 	fileUrl: '',
 	imageUrl: '',
 };
 
 const AddArticle = () => {
 	const [formFields, setFormFields] = useState(defaultFormFields);
-	const { title, fileUrl, imageUrl } = formFields;
+	const { title, snippet, fileUrl, imageUrl } = formFields;
 
 	const resetFormFields = () => {
 		setFormFields(defaultFormFields);
@@ -23,10 +24,11 @@ const AddArticle = () => {
 		e.preventDefault();
 		const uid = uuid();
 		await createArticleDocument({
-			title: title,
-			fileUrl: fileUrl,
-			imageUrl: imageUrl,
-			uid: uid,
+			title,
+			snippet,
+			fileUrl,
+			imageUrl,
+			uid,
 		});
 		resetFormFields();
 	};
@@ -50,6 +52,15 @@ const AddArticle = () => {
 					required
 					onChange={handleChange}
 					placeholder='Headline'
+				/>
+				<input
+					className='form-field'
+					type='text'
+					name='snippet'
+					value={snippet}
+					required
+					onChange={handleChange}
+					placeholder='Snippet'
 				/>
 				<input
 					className='form-field'
