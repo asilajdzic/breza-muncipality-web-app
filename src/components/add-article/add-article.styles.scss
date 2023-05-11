@@ -4,6 +4,7 @@
 	width: 40%;
 	height: fit-content;
 	margin: 8vw 5vw;
+
 	.add-article-form-container {
 		margin: 10%;
 		place-self: center;
@@ -23,10 +24,12 @@
 			height: fit-content;
 			font-size: 24px;
 			padding: 5px;
+
 			&:focus {
 				outline: none;
 			}
 		}
+
 		.submit-button {
 			height: 40px;
 			width: 100px;
@@ -34,10 +37,30 @@
 			border: none;
 			font: 24px bolder;
 			color: $primary;
+
 			&:hover {
 				transform: scale(1.05);
 				font-weight: bolder;
 				cursor: pointer;
+			}
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		width: 80%;
+
+		.add-article-form-container {
+			margin: 5%;
+			align-items: center;
+
+			.form-field {
+				font-size: 18px;
+			}
+
+			.submit-button {
+				height: 30px;
+				width: 80px;
+				font-size: 18px;
 			}
 		}
 	}

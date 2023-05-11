@@ -9,6 +9,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-end;
+
 	.email {
 		border: solid $secondary;
 		background-color: $primary;
@@ -17,6 +18,7 @@
 		font-size: 24px;
 		padding: 5px;
 	}
+
 	.message {
 		border: solid $secondary;
 		background-color: $primary;
@@ -26,10 +28,12 @@
 		resize: none;
 		padding: 5px;
 		border-radius: 5px;
+
 		&:focus {
 			outline-color: $secondary;
 		}
 	}
+
 	.submit-message-button {
 		height: 40px;
 		width: 100px;
@@ -37,10 +41,26 @@
 		border: none;
 		font: 24px bolder;
 		color: $primary;
+
 		&:hover {
 			transform: scale(1.05);
 			font-weight: bolder;
 			cursor: pointer;
+		}
+	}
+
+	@media only screen and (max-width: 768px) {
+		flex-direction: column;
+		align-items: center;
+
+		.email,
+		.message {
+			width: 90%;
+			margin-bottom: 20px;
+		}
+
+		.submit-message-button {
+			width: 150px;
 		}
 	}
 }

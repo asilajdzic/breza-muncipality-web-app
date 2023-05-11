@@ -5,6 +5,7 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	gap: 15px;
+
 	.answer-container {
 		align-content: center;
 		justify-self: center;
@@ -15,12 +16,31 @@
 		color: black;
 		display: flex;
 		flex-direction: column;
+
 		.message {
 			color: black;
 			font-size: 18;
 			text-transform: capitalize;
 			text-align: justify;
 			padding: 5px;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	}
+
+	@media screen and (max-width: 576px) {
+		margin: 10vh 5vw;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+		.answer-container {
+			min-height: 250px;
+			min-width: 180px;
+
+			.message {
+				font-size: 16px;
+			}
 		}
 	}
 }

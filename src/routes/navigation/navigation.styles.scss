@@ -43,4 +43,13 @@
 			margin: 10px 5px;
 		}
 	}
+
+	@media screen and (max-width: 768px) {
+		.logo-container {
+			width: 12vw;
+			min-width: 50px;
+			left: 2vw;
+			top: 2vw;
+		}
+	}
 }

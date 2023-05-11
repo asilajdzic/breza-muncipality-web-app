@@ -4,6 +4,7 @@
 	width: 40%;
 	height: fit-content;
 	margin: 8vw 5vw;
+
 	.add-employee-form-container {
 		margin: 10%;
 		place-self: center;
@@ -23,10 +24,12 @@
 			height: fit-content;
 			font-size: 24px;
 			padding: 5px;
+
 			&:focus {
 				outline: none;
 			}
 		}
+
 		.job-desc {
 			border: solid $secondary;
 			background-color: $primary;
@@ -36,10 +39,12 @@
 			resize: none;
 			padding: 5px;
 			border-radius: 5px;
+
 			&:focus {
 				outline: none;
 			}
 		}
+
 		.submit-button {
 			height: 40px;
 			width: 100px;
@@ -47,10 +52,37 @@
 			border: none;
 			font: 24px bolder;
 			color: $primary;
+
 			&:hover {
 				transform: scale(1.05);
 				font-weight: bolder;
 				cursor: pointer;
+			}
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		width: 90%;
+		margin: 5vw auto;
+
+		.add-employee-form-container {
+			margin: 5%;
+			align-items: center;
+			row-gap: 10px;
+
+			.form-field,
+			.job-desc {
+				font-size: 18px;
+			}
+
+			.job-desc {
+				height: 100px;
+			}
+
+			.submit-button {
+				height: 30px;
+				width: 80px;
+				font-size: 18px;
 			}
 		}
 	}

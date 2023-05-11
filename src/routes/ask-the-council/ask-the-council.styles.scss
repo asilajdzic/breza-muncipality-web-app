@@ -6,4 +6,14 @@
 	grid-template-columns: repeat(2, 1fr);
 	row-gap: 60px;
 	background-color: $primary;
+
+	@media only screen and (max-width: 768px) {
+		grid-template-columns: 1fr;
+		justify-items: center;
+	}
+
+	@media only screen and (min-width: 1024px) {
+		grid-template-columns: repeat(3, 1fr);
+		column-gap: 60px;
+	}
 }

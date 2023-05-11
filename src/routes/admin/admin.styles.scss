@@ -6,9 +6,11 @@
 	flex-direction: row;
 	min-height: 90vh;
 	height: fit-content;
+
 	.admin-main-container {
 		flex: 1;
 	}
+
 	.admin-sidebar-container {
 		width: 240px;
 		background-color: $secondary;
@@ -19,17 +21,31 @@
 		row-gap: 10px;
 		border: solid 1px blue;
 		border-right: none;
+
 		.admin-sidebar-item {
 			width: 220px;
 			text-align: center;
 			font-size: 18px;
 			font-weight: bolder;
 			height: fit-content;
+
 			&:hover {
 				transform: scale(1.05);
 				font-weight: bold;
 				cursor: pointer;
 			}
+		}
+	}
+
+	@media only screen and (max-width: 767px) {
+		.admin-main-container {
+			flex: 1;
+		}
+
+		.admin-sidebar-container {
+			width: fit-content;
+			border: none;
+			border-bottom: solid 1px blue;
 		}
 	}
 }

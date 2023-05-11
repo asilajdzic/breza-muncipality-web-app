@@ -96,10 +96,10 @@
 		flex-direction: column;
 		background-color: $secondary;
 		row-gap: 10px;
-		padding: 10px;
 		border: solid 1px blue;
 		border-right: none;
-
+		text-align: center;
+		align-items: center;
 		.message-preview {
 			width: 220px;
 			text-align: center;
@@ -112,6 +112,19 @@
 				font-weight: bold;
 				cursor: pointer;
 			}
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
+		.message-container {
+			margin: 3vw;
+		}
+		.messages-sidebar-container {
+			width: 100%;
+			border: none;
+			border-top: solid 1px blue;
+			border-bottom: solid 1px blue;
 		}
 	}
 }

@@ -1,7 +1,14 @@
+@use '../../assets/color-variables.scss' as *;
+
 .articles-container {
 	display: flex;
 	align-items: center;
 	width: 100%;
 	justify-content: center;
 	margin: 10vh 0;
+
+	@media only screen and (max-width: 768px) {
+		flex-direction: column;
+		margin: 5vh 0;
+	}
 }
